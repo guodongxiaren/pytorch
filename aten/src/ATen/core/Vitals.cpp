@@ -32,7 +32,7 @@ TorchVitalAttr& TorchVital::create(const std::string& attr, bool force) {
   }
   auto iter = attrs.find(attr);
   if (iter == attrs.end()) {
-    auto r = attrs.emplace(std::make_pair(attr, TorchVitalAttr()));
+    auto r = attrs.emplace(attr, TorchVitalAttr());
     return r.first->second;
   }
   return iter->second;
