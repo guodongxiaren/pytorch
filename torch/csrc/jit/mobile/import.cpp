@@ -677,9 +677,8 @@ mobile::Module _load_for_mobile_impl(
     mobile::Module result = deserializer.deserialize(device, extra_files);
     if (observer) {
       // Add model_name and model_size to metadata_map
-      extra_files.insert(std::make_pair("model_name", result.name()));
-      extra_files.insert(
-          std::make_pair("model_size", c10::guts::to_string(model_size)));
+      extra_files.emplace("model_name", result.name());
+      extra_files.emplace("model_size", c10::guts::to_string(model_size));
       metadata_map = observer->processMetadataFromExtra(extra_files);
       observer->onExitLoadModel(instance_key, metadata_map);
     }
