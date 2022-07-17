@@ -79,7 +79,7 @@ bool APIVitals::setVital(
   TorchVital* vital = nullptr;
   if (iter == name_map_.end()) {
     auto r =
-        name_map_.emplace(std::make_pair(vital_name, TorchVital(vital_name)));
+        name_map_.emplace(vital_name, TorchVital(vital_name));
     vital = &r.first->second;
   } else {
     vital = &iter->second;

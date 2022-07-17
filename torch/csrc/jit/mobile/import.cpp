@@ -650,7 +650,7 @@ mobile::Module _load_for_mobile_impl(
     auto defaultExtraFileList = observer->getDefaultExtraFiles();
     // Add files in defaultExtraFileList to fail_extra_files and extra_files
     for (const auto& fileName : defaultExtraFileList) {
-      extra_files.insert(std::make_pair(fileName, ""));
+      extra_files.emplace(fileName, "");
     }
   }
 
